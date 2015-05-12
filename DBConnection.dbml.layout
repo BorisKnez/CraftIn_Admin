@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13, 8.5" name="DBConnection">
+  <DataContextMoniker Name="/DBConnectionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1659dcc0-82cc-4384-9f9a-d20fec733b7a" absoluteBounds="0.5, 0.625, 2, 4.2708154296875">
+      <DataClassMoniker Name="/DBConnectionDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f26edc4-dab8-4459-b339-d4a88674fe18" absoluteBounds="0.51499999999999968, 1.085, 1.9700000000000002, 3.7108154296875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="122137ee-7f1a-4086-ace7-f5ea5556e7ce" absoluteBounds="0.5, 5.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DBConnectionDataContext/UserPortal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c30d5dca-d37f-406c-b39b-878fd2b7502c" absoluteBounds="0.51499999999999968, 5.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 4.8958154296875); (1.5 : 5.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/User/User_UserPortal" />
+      <nodes>
+        <classShapeMoniker Id="1659dcc0-82cc-4384-9f9a-d20fec733b7a" />
+        <classShapeMoniker Id="122137ee-7f1a-4086-ace7-f5ea5556e7ce" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="eaeeceaf-84d1-49ef-9a61-e869a0c34d06" absoluteBounds="8.25, 3.5, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManCategoriesList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="971d7f34-5bce-4488-a394-b74fbbe8ea29" absoluteBounds="8.265, 3.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="88fdfdbc-83ef-48f2-a901-8fee0b7c1f92" absoluteBounds="10.75, 3.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f736d79a-d3a9-44cf-ad44-96cfe4613fd4" absoluteBounds="10.765, 3.9600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a7c1959-9f1a-4841-a546-102b8c847f2f" absoluteBounds="2.875, 1.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManCountryList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb265b5c-111a-463a-accb-0a30da511f85" absoluteBounds="2.89, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37f5810f-cbe1-4637-8e95-3540dbe29aae" absoluteBounds="10.625, 1.375, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManRegion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b3294213-d371-452f-9abb-be2c40789607" absoluteBounds="10.64, 1.8350000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69ba615a-afb0-4d1d-b6c2-e4900911675f" absoluteBounds="7.875, 1.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManRegionList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="584ae7f4-cb24-4288-b8e8-2dad45b87523" absoluteBounds="7.8900000000000006, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.75 : 4.19314697265625); (10.25 : 4.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftManCategory/_craftin_CraftManCategory__craftin_CraftManCategoriesList" />
+      <nodes>
+        <classShapeMoniker Id="88fdfdbc-83ef-48f2-a901-8fee0b7c1f92" />
+        <classShapeMoniker Id="eaeeceaf-84d1-49ef-9a61-e869a0c34d06" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.625 : 2.19314697265625); (9.875 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftManRegion/_craftin_CraftManRegion__craftin_CraftManRegionList" />
+      <nodes>
+        <classShapeMoniker Id="37f5810f-cbe1-4637-8e95-3540dbe29aae" />
+        <classShapeMoniker Id="69ba615a-afb0-4d1d-b6c2-e4900911675f" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="52787237-5103-4572-9085-4e523a4b8c28" absoluteBounds="8.375, 5.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftManCompanyImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="668348c7-c02c-411e-a15c-d5d08fe18de5" absoluteBounds="8.39, 6.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97786bf6-db57-478e-8fea-6b3251c0cbd7" absoluteBounds="5.25, 1.25, 2, 6.1938297526041657">
+      <DataClassMoniker Name="/DBConnectionDataContext/_craftin_CraftUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7062a85e-1f0d-48ed-a20b-9f62e7a87105" absoluteBounds="5.265, 1.71, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 4.19314697265625); (8.25 : 4.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftUser/_craftin_CraftUser__craftin_CraftManCategoriesList" />
+      <nodes>
+        <classShapeMoniker Id="97786bf6-db57-478e-8fea-6b3251c0cbd7" />
+        <classShapeMoniker Id="eaeeceaf-84d1-49ef-9a61-e869a0c34d06" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 2.19314697265625); (7.875 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftUser/_craftin_CraftUser__craftin_CraftManRegionList" />
+      <nodes>
+        <classShapeMoniker Id="97786bf6-db57-478e-8fea-6b3251c0cbd7" />
+        <classShapeMoniker Id="69ba615a-afb0-4d1d-b6c2-e4900911675f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 6.31814697265625); (8.375 : 6.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftUser/_craftin_CraftUser__craftin_CraftManCompanyImage" />
+      <nodes>
+        <classShapeMoniker Id="97786bf6-db57-478e-8fea-6b3251c0cbd7" />
+        <classShapeMoniker Id="52787237-5103-4572-9085-4e523a4b8c28" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 1.84699625651042); (5.25 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DBConnectionDataContext/_craftin_CraftManCountryList/_craftin_CraftManCountryList__craftin_CraftUser" />
+      <nodes>
+        <classShapeMoniker Id="7a7c1959-9f1a-4841-a546-102b8c847f2f" />
+        <classShapeMoniker Id="97786bf6-db57-478e-8fea-6b3251c0cbd7" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

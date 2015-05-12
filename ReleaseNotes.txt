@@ -1,0 +1,16 @@
+﻿<h3>Modul administration for portals</h3>
+<p class="Contributor">
+	Stroka.si<br />
+	we are part of SBG<br />
+	<a href="http://www.stroka.si">http://www.stroka.si</a><br />
+	<a href="mailto:ccc@stroka.si">ccc@stroka.si</a>
+</p>
+<hr/>
+<div class="License">
+	<h3>Modul administration for portals</h3>
+	<b>Version 1.0.0</b><br /><br />
+	<b>Changelog:</b>
+	<ul>
+		<li>1.0.0<br />- Module implementation.</li>
+	</ul>
+</div>

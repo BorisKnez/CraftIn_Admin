@@ -1,0 +1,7 @@
+﻿<div class="License">
+	<h3>Licenca</h3>
+	<p class="Owner">
+		Copyright (c) 2015 Stroka.si, partner of SBG<br />
+		Vse pravice pridržane.
+	</p>
+</div>

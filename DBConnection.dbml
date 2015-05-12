@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="craftin2" Class="DBConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=KNEZB;Initial Catalog=craftin2;User ID=boris" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SiteSqlServer" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IsSuperUser" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AffiliateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Column Name="DisplayName" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatePassword" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LastIPAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedByUserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModifiedOnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PasswordResetToken" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PasswordResetExpiration" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LowerEmail" Type="System.String" DbType="NVarChar(256)" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_UserPortal" Member="UserPortals" ThisKey="UserID" OtherKey="UserId" Type="UserPortal" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPortals" Member="UserPortals">
+    <Type Name="UserPortal">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PortalId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserPortalId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Authorised" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="RefreshRoles" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="VanityUrl" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="User_UserPortal" Member="User" ThisKey="UserId" OtherKey="UserID" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManCategoriesList]" Member="_craftin_CraftManCategoriesLists">
+    <Type Name="_craftin_CraftManCategoriesList">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CraftUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="_craftin_CraftManCategory__craftin_CraftManCategoriesList" Member="_craftin_CraftManCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="_craftin_CraftManCategory" IsForeignKey="true" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManCategoriesList" Member="_craftin_CraftUser" ThisKey="CraftUserID" OtherKey="ID" Type="_craftin_CraftUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManCategory]" Member="_craftin_CraftManCategories">
+    <Type Name="_craftin_CraftManCategory">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="CategoryDescription" Type="System.String" DbType="VarChar(3000)" CanBeNull="true" />
+      <Column Name="CategoryImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="_craftin_CraftManCategory__craftin_CraftManCategoriesList" Member="_craftin_CraftManCategoriesLists" ThisKey="CategoryID" OtherKey="CategoryID" Type="_craftin_CraftManCategoriesList" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManCountryList]" Member="_craftin_CraftManCountryLists">
+    <Type Name="_craftin_CraftManCountryList">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Association Name="_craftin_CraftManCountryList__craftin_CraftUser" Member="_craftin_CraftUsers" ThisKey="CountryID" OtherKey="CountryID" Type="_craftin_CraftUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManRegion]" Member="_craftin_CraftManRegions">
+    <Type Name="_craftin_CraftManRegion">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegionName" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="RegionDescription" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="RegionImage" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RegionCountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="_craftin_CraftManRegion__craftin_CraftManRegionList" Member="_craftin_CraftManRegionLists" ThisKey="ID" OtherKey="RegionID" Type="_craftin_CraftManRegionList" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManRegionList]" Member="_craftin_CraftManRegionLists">
+    <Type Name="_craftin_CraftManRegionList">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RegionID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CraftUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="_craftin_CraftManRegion__craftin_CraftManRegionList" Member="_craftin_CraftManRegion" ThisKey="RegionID" OtherKey="ID" Type="_craftin_CraftManRegion" IsForeignKey="true" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManRegionList" Member="_craftin_CraftUser" ThisKey="CraftUserID" OtherKey="ID" Type="_craftin_CraftUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftManCompanyImages]" Member="_craftin_CraftManCompanyImages">
+    <Type Name="_craftin_CraftManCompanyImage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CraftUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManCompanyImage" Member="_craftin_CraftUser" ThisKey="CraftUserID" OtherKey="ID" Type="_craftin_CraftUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[_craftin_CraftUser]" Member="_craftin_CraftUsers">
+    <Type Name="_craftin_CraftUser">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="DisplayName" Type="System.String" DbType="VarChar(120) NOT NULL" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="VatID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CompanyEmail" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PortalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PortalName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="PortalAlias" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="OwnerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DefaultLang" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DateInsert" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserInsert" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="UserUpdate" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+      <Column Name="DNNUserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CompanyMainImage" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManCategoriesList" Member="_craftin_CraftManCategoriesLists" ThisKey="ID" OtherKey="CraftUserID" Type="_craftin_CraftManCategoriesList" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManRegionList" Member="_craftin_CraftManRegionLists" ThisKey="ID" OtherKey="CraftUserID" Type="_craftin_CraftManRegionList" />
+      <Association Name="_craftin_CraftUser__craftin_CraftManCompanyImage" Member="_craftin_CraftManCompanyImages" ThisKey="ID" OtherKey="CraftUserID" Type="_craftin_CraftManCompanyImage" />
+      <Association Name="_craftin_CraftManCountryList__craftin_CraftUser" Member="_craftin_CraftManCountryList" ThisKey="CountryID" OtherKey="CountryID" Type="_craftin_CraftManCountryList" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
